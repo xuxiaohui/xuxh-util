@@ -15,8 +15,7 @@ script:
   - yarn install
   - yarn run test
   - tsc
-before_deploy: # 在 发布之前, 执行命令(按照实际情况调整)
-  - cd dist
+
 deploy:
   provider: npm
   email: "$NPM_EMAIL"
