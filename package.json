@@ -8,6 +8,11 @@
   },
   "author": "",
   "license": "ISC",
+  "files": [
+    "dist/index.js",
+    "package.json",
+    "README.md"
+  ],
   "devDependencies": {
     "@types/chai": "^4.1.4",
     "@types/mocha": "^5.2.5",

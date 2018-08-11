@@ -14,6 +14,10 @@ function getTradeUrl(str) {
     return urlArr;
 }
 exports.getTradeUrl = getTradeUrl;
+/**
+ * 对链接中需要转义的html符号进行转义
+ * @param str
+ */
 function checkHtmlStr(str) {
     var s = "";
     if (str.length == 0)
