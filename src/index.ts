@@ -12,6 +12,10 @@ export function getTradeUrl(str: String): Array<String> {
   return urlArr;
 }
 
+/**
+ * 对链接中需要转义的html符号进行转义
+ * @param str 
+ */
 function checkHtmlStr(str: String): String {
   let s = "";
   if (str.length == 0) return "";
