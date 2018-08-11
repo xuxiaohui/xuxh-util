@@ -9,4 +9,4 @@ branches:
     - master
 before_script:
   - npm install
-  - npm run test:cover
+  - npm run test
