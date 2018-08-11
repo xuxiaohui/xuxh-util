@@ -1,8 +1,8 @@
 {
   "name": "xuxh-util",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "我的工具箱",
-  "main": "index.js",
+  "main": ".dist/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha -r ./node_modules/ts-node/register src/__test__/**/*.ts"
   },
