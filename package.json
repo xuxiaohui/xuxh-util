@@ -1,15 +1,15 @@
 {
   "name": "xuxh-util",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "我的工具箱",
-  "main": ".dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -r ./node_modules/ts-node/register src/__test__/**/*.ts"
+    "test": "./node_modules/.bin/mocha -r ./node_modules/ts-node/register ./__test__/**/*.ts"
   },
   "author": "",
   "license": "ISC",
   "files": [
-    "dist/index.js",
+    "index.js",
     "package.json",
     "README.md"
   ],
