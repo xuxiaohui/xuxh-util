@@ -1,6 +1,6 @@
 export function getTradeUrl(str: String): Array<String> {
   let urlArr: Array<String> = [];
-  let regPro = /(http(s?):\/\/(\w+.ihealthcoming.com|\w+.baymy.cn)[A-Za-z0-9_\-/.?=&;#]*)/g
+  let regPro = /(http(s?):\/\/(\w+.ihealthcoming.com|\w+.baymy.cn)[A-Za-z0-9_\-/.?=&;#]*)/g;
   let element = checkHtmlStr(str);
   if (element) {
     (element.match(regPro) || []).forEach(function(item) {
@@ -11,7 +11,6 @@ export function getTradeUrl(str: String): Array<String> {
   }
   return urlArr;
 }
-
 function checkHtmlStr(str: String): String {
   let s = "";
   if (str.length == 0) return "";
