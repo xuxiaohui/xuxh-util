@@ -2,6 +2,10 @@ node_modules/
 .node_modules/
 .idea
 dist/
+.nyc_output/
 .dist/
 ./index.js
 index.js
+index.min.js
+__test__/index.test.js
+./__test__/index.test.js
