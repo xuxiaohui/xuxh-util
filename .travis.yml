@@ -11,13 +11,13 @@ install: yarn
 script:
   - yarn install
   - yarn run test
-  - tsc
 
 jobs:
   include:
     - stage: npm release
       node_js: "8"
-      script: echo "Deploying to npm ..."
+      script: 
+        - tsc
       deploy:
         provider: npm
         email: "$NPM_EMAIL"
