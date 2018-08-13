@@ -184,6 +184,7 @@ http://szmuyingzhan.ihealthcoming.com/conference/views/success.html?userId=298&c
     let yeuziIds = tool.getUrlIds('http://webchat.baymy.cn/yuezicenter/views/yuezi_detail.html?id=3323')
     expect(yeuziIds.length).to.be.equal(1)
     expect(yeuziIds).to.include(3323)
+    
     // 健康活动
     let welfareIds = tool.getUrlIds('http://webchat.ihealthcoming.com/welfare/views/welfare_detail.html?id=3618')
     expect(welfareIds.length).to.be.equal(1)
