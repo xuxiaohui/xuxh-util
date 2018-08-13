@@ -1,7 +1,7 @@
 language: node_js
 cache:
   directories:
-    - node_modules
+    - "node_modules"
 node_js:
   - "stable"
   - "8"
@@ -23,4 +23,3 @@ deploy:
   skip_cleanup: true # 为了防止 Travis CI 清理额外的文件夹并删除你做的改变
   on:
     tags: true
-    rvm: '8'
