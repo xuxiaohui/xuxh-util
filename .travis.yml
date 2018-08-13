@@ -13,8 +13,14 @@ script:
   - yarn run test
   - tsc
 
-deploy:
-  provider: npm
-  email: "$NPM_EMAIL"
-  api_key: "$NPM_TOKEN"
-  skip_cleanup: true # 为了防止 Travis CI 清理额外的文件夹并删除你做的改变
+jobs:
+  include:
+    - stage: npm release
+      node_js: "8"
+      script: echo "Deploying to npm ..."
+      deploy:
+        provider: npm
+        email: "$NPM_EMAIL"
+        api_key: "$NPM_TOKEN"
+        skip_cleanup: true # 为了防止 Travis CI 清理额外的文件夹并删除你做的改变
+  
