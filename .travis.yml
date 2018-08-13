@@ -8,9 +8,7 @@ node_js:
   - "6"
 install: yarn
 
-branches:
-  only:
-    - master
+
 script:
   - yarn install
   - yarn run test
