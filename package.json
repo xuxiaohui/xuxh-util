@@ -1,6 +1,6 @@
 {
   "name": "xuxh-util",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "我的工具箱",
   "main": "index.min.js",
   "scripts": {
@@ -17,7 +17,6 @@
   "license": "ISC",
   "files": [
     "index.js",
-    "index.min.js",
     "package.json",
     "README.md"
   ],
