@@ -184,12 +184,10 @@ http://szmuyingzhan.ihealthcoming.com/conference/views/success.html?userId=298&c
     let yeuziIds = tool.getUrlIds('http://webchat.baymy.cn/yuezicenter/views/yuezi_detail.html?id=3323')
     expect(yeuziIds.length).to.be.equal(1)
     expect(yeuziIds).to.include(3323)
-
     // 健康活动
     let welfareIds = tool.getUrlIds('http://webchat.ihealthcoming.com/welfare/views/welfare_detail.html?id=3618')
     expect(welfareIds.length).to.be.equal(1)
     expect(welfareIds).to.include(3618)
-
     let classH5Ids = tool.getUrlIds('https://webchat.ihealthcoming.com/miniProgramShare/views/classShare.html?vHMC=66-40093-2&vHMP=yueer4&classId=97&classType=1&chapterId=1523&from=timeline&isappinstalled=0&followAssistant=1')
     expect(classH5Ids.length).to.be.equal(2)
     expect(classH5Ids).to.include(97)
