@@ -194,4 +194,18 @@ http://szmuyingzhan.ihealthcoming.com/conference/views/success.html?userId=298&c
     expect(classH5Ids).to.include(97)
     expect(classH5Ids).to.include(1523)
   })
+  it('test isEmptyObject', () => {
+    expect(tool.isEmptyObject({})).to.be.true
+    expect(tool.isEmptyObject({a:'b'})).to.be.false
+    expect(tool.isEmptyObject(null)).to.be.true
+    expect(tool.isEmptyObject(undefined)).to.be.true
+  })
+  it("test clearObject", () => {
+    expect(tool.clearObject({ a: '1', b: 'o' })).to.deep.equal({ b: 'o',a:'1'})
+    expect(tool.clearObject({ a: '1', b: 'o',c:null,d:undefined })).to.deep.equal({ b: 'o',a:'1'})
+    expect(tool.clearObject({ a: '1', b: 'o',c:null,d:undefined,e:0 })).to.deep.equal({ b: 'o',a:'1',e:0})
+    expect(tool.clearObject(null)).to.equal(null)
+    expect(tool.clearObject(undefined)).to.equal(undefined)
+    expect(tool.clearObject(0)).to.equal(0)
+  });
 });

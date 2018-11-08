@@ -113,3 +113,33 @@ function checkHtmlStr(str: String): String {
   s = s.replace(/&quot;/g, '"');
   return s;
 }
+
+/**
+ * 判断一个对象是否是空对象
+ */
+export function isEmptyObject(obj:any):Boolean {
+  if (!obj) return true
+  let name
+  for (name in obj) {
+    return false
+  }
+  return true
+}
+
+/**
+ * 清理对象中的空值和undefined值
+ */
+export function clearObject(params:any): any {
+  if (!params || isEmptyObject(params)) return params
+  let keys = Object.keys(params)
+  /** 删除失效的查询属性 **/
+  keys.forEach((key: any) => {
+    if (!params[key]) {
+      if (!isNaN(parseInt(params[key])) && parseInt(params[key]) === 0) {
+      } else {
+        delete params[key]
+      }
+    }
+  })
+  return params
+}
