@@ -1,6 +1,6 @@
 {
   "name": "xuxh-util",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "我的工具箱",
   "main": "index.min.js",
   "scripts": {

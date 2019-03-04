@@ -208,4 +208,48 @@ http://szmuyingzhan.ihealthcoming.com/conference/views/success.html?userId=298&c
     expect(tool.clearObject(undefined)).to.equal(undefined)
     expect(tool.clearObject(0)).to.equal(0)
   });
+  it("test sortAdverts", () => {
+    let testArr = [{ "adId": 523, "adTital": "本地活动", "adType": 1, "adSet": 22, "adUrl": "http://webchat.ihealthcoming.com/yuedoctor/views/yue_list.html?adId=523", "startDate": "2018-06-04 00:00:00", "endDate": "2024-06-04 00:00:00","dataStyle": 2 }, { "adId": 524, "adTital": "月子中心", "adType": 1, "adSet": 22, "adUrl": "http://webchat.ihealthcoming.com/public/views/public_index.html?pageId=29", "startDate": "2018-06-04 00:00:00", "endDate": "2024-06-04 00:00:00", "getNum": 8, "dataStyle": 5 }, { "adId": 546, "adTital": "月嫂", "adType": 1, "adSet": 22, "adUrl": "http://webchat.ihealthcoming.com/public/views/public_index.html?pageId=37", "startDate": "2018-06-20 00:00:00", "endDate": "2024-06-20 00:00:00", "getNum": 5, "dataStyle": 5 }, { "adId": 526, "adTital": "时光留影", "adType": 1, "adSet": 22, "adUrl": "http://webchat.ihealthcoming.com/public/views/public_index.html?pageId=30", "startDate": "2018-06-04 00:00:00", "endDate": "2024-06-04 00:00:00", "getNum": 20, "dataStyle": 5 }, { "adId": 525, "adTital": "现代孕妈妈", "adType": 1, "adSet": 22, "adUrl": "http://webchat.ihealthcoming.com/public/views/public_index.html?pageId=31", "startDate": "2018-06-04 00:00:00", "endDate": "2024-06-04 00:00:00", "getNum": 5, "dataStyle": 5 }, { "adId": 527, "adTital": "产检分娩", "adType": 1, "adSet": 22, "adUrl": "http://webchat.ihealthcoming.com/public/views/public_index.html?pageId=32", "startDate": "2018-06-04 00:00:00", "endDate": "2024-06-04 00:00:00", "getNum": 5, "dataStyle": 5 }, { "adId": 528, "adTital": "情感咨询", "adType": 1, "adSet": 22, "usePosOrder": 0, "adUrl": "http://webchat.ihealthcoming.com/public/views/public_index.html?pageId=33", "startDate": "2018-06-04 00:00:00", "endDate": "2024-06-04 00:00:00", "getNum": 5, "dataStyle": 5 }, { "adId": 529, "adTital": "好物甄选", "adType": 1, "adSet": 22, "usePosOrder": 0, "adUrl": "http://webchat.ihealthcoming.com/public/views/public_index.html?pageId=34", "startDate": "2018-06-04 00:00:00", "endDate": "2024-06-30 00:00:00", "getNum": 5, "dataStyle": 5 }]
+    let adMessageList = tool.sortAdverts(testArr);
+    expect(adMessageList.length).to.be.eq(1)
+    expect(adMessageList[0].key).to.be.eq(22)
+    expect(adMessageList[0].arr.length).to.be.eq(8)
+    expect(adMessageList[0].arr[0].getNum).to.be.eq(3)
+    expect(adMessageList[0].arr[1].getNum).to.be.eq(8)
+
+    let testArr1 = [{ "adId": 595, "adTital": "妈妈精品课", "adPhoto": "http://file.ihealthcoming.com/manage/image/C8359F6A61C00001F3F9AB5A17A0A300", "adType": 4, "adSet": 35, "usePosOrder": 1, "startDate": "2018-09-04 00:00:00", "endDate": "2025-09-13 00:00:00", "dataStyle": 2 }, { "adId": 597, "adTital": "热门系列课", "adMsg": "热门系列课", "adType": 1, "adSet": 22, "usePosOrder": 1, "adUrl": "http://webchat.ihealthcoming.com/yuedoctor/views/yue_list.html?adId=597", "startDate": "2018-09-13 00:00:00", "endDate": "2025-09-13 00:00:00", "getNum": 4, "dataStyle": 2 }, { "adId": 600, "adTital": "孕妈妈", "adPhoto": "http://file.ihealthcoming.com/manage/image/C820D34A80F0000160131FD0E0D05A70", "adMsg": "孕妈妈", "adType": 1, "adSet": 36, "adUrl": "http://webchat.ihealthcoming.com/public/views/public_index.html?pageId=58", "startDate": "2018-09-04 00:00:00", "endDate": "2021-09-08 00:00:00", "dataStyle": 6 }, { "adId": 603, "adTital": "宝宝", "adPhoto": "http://file.ihealthcoming.com/manage/image/C8211212B50000013BCCB1D01960156B", "adMsg": "宝宝", "adType": 1, "adSet": 36, "usePosOrder": 1, "adUrl": "http://webchat.ihealthcoming.com/public/views/public_index.html?pageId=60", "startDate": "2018-09-05 00:00:00", "endDate": "2021-09-08 00:00:00", "dataStyle": 6 }, { "adId": 601, "adTital": "产后妈妈", "adPhoto": "http://file.ihealthcoming.com/manage/image/C82107D3C78000015ED71710169013D4", "adMsg": "产后妈妈", "adType": 1, "adSet": 36, "usePosOrder": 1, "adUrl": "http://webchat.ihealthcoming.com/public/views/public_index.html?pageId=59", "startDate": "2018-09-05 00:00:00", "endDate": "2021-09-08 00:00:00", "dataStyle": 6 }, { "adId": 598, "adTital": "推荐课程", "adType": 1, "adSet": 22, "usePosOrder": 1, "adUrl": "http://webchat.ihealthcoming.com/public/views/public_index.html?pageId=3130", "startDate": "2018-09-21 00:00:00", "endDate": "2025-09-21 00:00:00", "getNum": 5, "dataStyle": 7 }]
+    let adMessageList1 = tool.sortAdverts(testArr1);
+    expect(adMessageList1.length).to.be.eq(4);
+    expect(adMessageList1[0].key).to.be.eq(35);
+    expect(adMessageList1[0].arr.length).to.be.eq(1);
+    expect(adMessageList1[1].key).to.be.eq(22);
+    expect(adMessageList1[1].arr.length).to.be.eq(1);
+    expect(adMessageList1[2].key).to.be.eq(36);
+    expect(adMessageList1[2].arr.length).to.be.eq(3);
+    expect(adMessageList1[3].key).to.be.eq(22);
+    expect(adMessageList1[3].arr.length).to.be.eq(1);
+  });
+  it("test makePath", ()=>{
+      expect(tool.makePath('pages/sharepage/sharepage', {})).to.be.eq("pages/sharepage/sharepage")
+      expect(tool.makePath('pages/sharepage/sharepage', {
+          test: true,
+          abc: null,
+          de: undefined,
+          xy: '',
+          flag: false
+      })).to.be.eq("pages/sharepage/sharepage?test=true")
+      expect(tool.makePath("https://webchat.ihealthcoming.com/webchatpay/views/min_pro_detail.html?id=4539", {
+        vHMC:66,
+        vHMP:'yueer1'
+      })).to.be.eq('https://webchat.ihealthcoming.com/webchatpay/views/min_pro_detail.html?id=4539&vHMC=66&vHMP=yueer1')
+      expect(tool.makePath("https://webchat.ihealthcoming.com/webchatpay/views/min_pro_detail.html?id=4539", {
+        vHMC:66,
+        vHMP:'yueer1',
+        test: true,
+        abc: null,
+        de: undefined,
+        xy: '',
+        flag: false
+      })).to.be.eq('https://webchat.ihealthcoming.com/webchatpay/views/min_pro_detail.html?id=4539&test=true&vHMC=66&vHMP=yueer1')
+  })
 });

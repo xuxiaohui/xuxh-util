@@ -102,8 +102,8 @@ export function getUrlIds(url: string): number[] {
  * 对链接中需要转义的html符号进行转义
  * @param str
  */
-function checkHtmlStr(str: String): String {
-  let s = "";
+function checkHtmlStr(str: string): string {
+  let s : string = "";
   if (str.length == 0) return "";
   s = str.replace(/&amp;/g, "&");
   s = s.replace(/&lt;/g, "<");
@@ -142,4 +142,49 @@ export function clearObject(params:any): any {
     }
   })
   return params
+}
+
+/**
+ * 对广告列表进行分类存储
+ * @param arr 待处理的数组
+ */
+export function sortAdverts(arr:Array<any>):Array<any>{
+  let resultArr:Array<Object> = [];
+  let currObj:any = {};
+  if (arr && arr.length) {
+    arr.forEach(item => {
+      if (+item.adSet === 22) {
+        item.getNum = item.getNum && item.getNum > 0 ? item.getNum : 3;
+        item.list = new Array(item.getNum).map(() => { return {} })
+      }
+      if (currObj && item.adSet === currObj.key) {
+        currObj.arr.push(item)
+      } else {
+        if (currObj && currObj.key) {
+           resultArr.push(currObj) 
+        }
+        currObj = {
+          key:item.adSet,
+          arr:[item]
+        }
+      }
+    })
+    currObj && currObj.key && resultArr.push(currObj)
+  }
+  return resultArr;
+}
+
+/**
+ * 生成一个跳转的链接
+ * @param path 需要处理的链接
+ * @param params 需要带上的参数
+ */
+export function makePath(path:string, params:Object):string {
+    let obj = clearObject(params);
+    let arr = Object.keys(obj).sort();
+    let resultPath : string = path;
+    arr.forEach(item => {
+        resultPath = changeURLArg(resultPath, item, obj[item] && obj[item].toString());
+    });
+    return resultPath;
 }
