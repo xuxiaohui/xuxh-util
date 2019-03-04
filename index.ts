@@ -2,7 +2,7 @@
  * 获取页面中对应域名的所有链接
  * @param str 
  */
-export function getTradeUrl(str: string): string[] {
+function getTradeUrl(str: string): string[] {
   let urlArr: string[] = [];
   let regPro = /(http(s?):\/\/(\w+.ihealthcoming.com|\w+.baymy.cn)[A-Za-z0-9_\-/.?=&;#]*)/g;
   let element = checkHtmlStr(str);
@@ -21,7 +21,7 @@ export function getTradeUrl(str: string): string[] {
  * @param contents 需要处理的
  * @return {*}
  */
-export function getTradeUrls(...contents:string[]): string[] {
+function getTradeUrls(...contents:string[]): string[] {
   let arr: string[] = [];
   for (let content of contents) {
     arr.push(content);
@@ -29,7 +29,7 @@ export function getTradeUrls(...contents:string[]): string[] {
   return getTradeUrlsForArr(arr);
 }
 
-export function getTradeUrlsForArr(arr: string[]): string[] {
+function getTradeUrlsForArr(arr: string[]): string[] {
   let retArr: string[] = [];
   arr.forEach(item => {
     retArr = retArr.concat(getTradeUrl(item));
@@ -43,7 +43,7 @@ export function getTradeUrlsForArr(arr: string[]): string[] {
  * @param arg 参数名称
  * @param arg_val 参数值
  */
-export function changeURLArg(url: string, arg: string, arg_val: string) {
+function changeURLArg(url: string, arg: string, arg_val: string) {
   let pattern = arg + "=([^&]*)";
   let replaceText = arg + "=" + arg_val;
   if (url.match(pattern)) {
@@ -67,7 +67,7 @@ export function changeURLArg(url: string, arg: string, arg_val: string) {
  * @param tradeStr 被替换的字符串
  * @param targetStr 将要替换成的字符串
  */
-export function replaceAllForString(
+function replaceAllForString(
   content: string,
   tradeStr: string,
   targetStr: string
@@ -80,7 +80,7 @@ export function replaceAllForString(
  * 判断链接是不是我们域名的url
  * @param url
  */
-export function isOurWeixinURL(url: string): boolean {
+function isOurWeixinURL(url: string): boolean {
   let regPro = /(http(s?):\/\/(\w+.ihealthcoming.com|\w+.baymy.cn)[A-Za-z0-9_\-/.?=&;#]*)/g;
   return regPro.test(url);
 }
@@ -89,7 +89,7 @@ export function isOurWeixinURL(url: string): boolean {
  * 从给定的url中提取出对应的id值
  * @param url
  */
-export function getUrlIds(url: string): number[] {
+function getUrlIds(url: string): number[] {
   let reg = /id=([0-9]+)/gi;
   let ids: number[] = [];
   while (reg.test(url)) {
@@ -117,7 +117,7 @@ function checkHtmlStr(str: string): string {
 /**
  * 判断一个对象是否是空对象
  */
-export function isEmptyObject(obj:any):Boolean {
+function isEmptyObject(obj:any):Boolean {
   if (!obj) return true
   let name
   for (name in obj) {
@@ -129,7 +129,7 @@ export function isEmptyObject(obj:any):Boolean {
 /**
  * 清理对象中的空值和undefined值
  */
-export function clearObject(params:any): any {
+function clearObject(params:any): any {
   if (!params || isEmptyObject(params)) return params
   let keys = Object.keys(params)
   /** 删除失效的查询属性 **/
@@ -148,7 +148,7 @@ export function clearObject(params:any): any {
  * 对广告列表进行分类存储
  * @param arr 待处理的数组
  */
-export function sortAdverts(arr:Array<any>):Array<any>{
+function sortAdverts(arr:Array<any>):Array<any>{
   let resultArr:Array<Object> = [];
   let currObj:any = {};
   if (arr && arr.length) {
@@ -179,7 +179,7 @@ export function sortAdverts(arr:Array<any>):Array<any>{
  * @param path 需要处理的链接
  * @param params 需要带上的参数
  */
-export function makePath(path:string, params:Object):string {
+function makePath(path:string, params:Object):string {
     let obj = clearObject(params);
     let arr = Object.keys(obj).sort();
     let resultPath : string = path;
@@ -188,3 +188,19 @@ export function makePath(path:string, params:Object):string {
     });
     return resultPath;
 }
+
+const exportObj = {
+    getTradeUrl,
+    getTradeUrls,
+    getTradeUrlsForArr,
+    changeURLArg,
+    replaceAllForString,
+    isOurWeixinURL,
+    getUrlIds,
+    isEmptyObject,
+    clearObject,
+    sortAdverts,
+    makePath
+};
+
+module.exports = exportObj;
