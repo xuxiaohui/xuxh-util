@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import "mocha";
-let {
+import {
     getTradeUrl,
     getTradeUrls,
     getTradeUrlsForArr,
@@ -12,7 +12,7 @@ let {
     clearObject,
     sortAdverts,
     makePath
-} = require("../index");
+} from "../index";
 
 describe("测试", () => {
   let testStr1 = `周末福利

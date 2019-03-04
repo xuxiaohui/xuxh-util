@@ -189,7 +189,7 @@ function makePath(path:string, params:Object):string {
     return resultPath;
 }
 
-const exportObj = {
+export {
     getTradeUrl,
     getTradeUrls,
     getTradeUrlsForArr,
@@ -202,5 +202,3 @@ const exportObj = {
     sortAdverts,
     makePath
 };
-
-module.exports = exportObj;
