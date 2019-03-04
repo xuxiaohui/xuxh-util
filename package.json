@@ -1,13 +1,15 @@
 {
   "name": "xuxh-util",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "我的工具箱",
-  "main": "index.min.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "jsnext:main": "dist/index.js",
   "scripts": {
     "test": "nyc --reporter=text ./node_modules/.bin/mocha -r ./node_modules/ts-node/register ./__test__/**/*.ts",
-    "build": "npm run build:es2015 && npm run build:esm && npm run build:cjs && npm run build:umd && npm run build:umd:min",
+    "build": "npm run build:es2015",
     "package":"npm run build:esm && npm run build:umd && npm run build:umd:min",
-    "build:es2015": "tsc --module es2015 --target es2015 --outDir dist/es2015",
+    "build:es2015": "tsc --module es2015 --target es2015 --outDir dist",
     "build:esm": "tsc --module es2015 --target es5 --outDir dist/esm",
     "build:cjs": "tsc --module commonjs --target es5 --outDir dist/cjs",
     "build:umd": "rollup dist/esm/index.js --format umd --name index --sourceMap --output ./index.js",
@@ -15,8 +17,9 @@
   },
   "author": "",
   "license": "ISC",
+  "miniprogram": "dist",
   "files": [
-    "index.js",
+    "dist/index.js",
     "package.json",
     "README.md"
   ],
